@@ -1,0 +1,58 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">Sebaran IKM</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="tab-button-area">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block [outline]="!mapIkm" color="dark" (click)="this.showMapIkm()">Map IKM</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block [outline]="!listIkm" color="dark" (click)="this.showListIkm()">List IKM</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div id="myMap" *ngIf="mapIkm">
+
+  </div>
+
+  <div *ngIf="listIkm">
+    <ion-card style="margin-top: -1px;" class="animated fadeIn">
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let ikm of this.ikm?.ikm" class="list-ikm">
+            <div class="ikm-description" (click)="this.pushIkmDetailPage(ikm)">
+              <h2 style="color: #444;"><b>{{ ikm.nama_sentra }}</b></h2>
+              <p>{{ ikm.alamat }}</p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

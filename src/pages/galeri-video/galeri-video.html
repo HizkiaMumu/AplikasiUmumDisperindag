@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>Galeri Video</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngFor="let video of this.data?.videos" (click)="this.pushPlayVideoPage(video)">
+    <img src='https://i.ytimg.com/vi/{{ video.youtube_video_id }}/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLCQOIGque3So2vswb8u3D6p5xo2-A'/>
+    <ion-card-content>
+      <ion-card-title class="video-title">
+        {{ video.judul }}
+      </ion-card-title>
+      <span class="posted-date">{{ video.created_at }}</span>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

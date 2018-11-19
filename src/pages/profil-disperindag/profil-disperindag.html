@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>DISPERINDAG</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <div padding>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <img src="assets/imgs/logo-kukar.png" width="100%" height="auto">
+          </ion-col>
+          <ion-col col-8>
+            <div class="description-profil">
+              <h1 class="hijau-disperindag"><b>Rencana Strategis</b></h1>
+              <div *ngIf="this.profil != null" [innerHtml]="this.profil?.profil_disperindag.rencana_strategis" class="animated fadeIn"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div style="background: #04B26C !important;" padding>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <div class="description-profil text-right">
+              <h1 style="color: #fff;"><b>UNIT PELAKSANA TEKNIS (UPT)</b></h1>
+              <div style="color: rgba(240, 240, 240);" *ngIf="this.profil != null" [innerHtml]="this.profil?.profil_disperindag.upt" class="animated fadeIn"></div>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <img src="assets/imgs/logo-kukar.png" width="100%" height="auto">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div padding>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <img src="assets/imgs/logo-kukar.png" width="100%" height="auto">
+          </ion-col>
+          <ion-col col-8>
+            <div class="description-profil">
+              <h1 class="hijau-disperindag"><b>Visi dan Misi</b></h1>
+              <div *ngIf="this.profil != null" [innerHtml]="this.profil?.profil_disperindag.visi_dan_misi" class="animated fadeIn"></div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+</ion-content>

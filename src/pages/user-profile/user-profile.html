@@ -1,0 +1,79 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">Profile</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-fab right bottom *ngIf="ikmSaya">
+    <button ion-fab color="light" (click)="this.pushRegistrasiIkm()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <div class="profile-area">
+    <div class="dark-overlay"></div>
+    <div class="profile-content">
+      <img src="http://newsoft.ps/wp-content/uploads/2016/06/John_Doe.jpg" height="90px" width="auto" style="border-radius: 100%;">
+      <h3 class="user-name">{{ this.user?.name }}</h3>
+      <h5 class="user-email">{{ this.user?.email }}</h5>
+    </div>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block [outline]="!ikmSaya" color="dark" (click)="this.showIkmSaya()">IKM Saya</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block [outline]="!semuaIkm" color="dark" (click)="this.showSemuaIkm()">Semua IKM</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card style="margin-top: -1px;" *ngIf="ikmSaya" class="animated fadeIn">
+    <ion-card-content>
+      <p *ngIf="this.ikmUser?.ikm.length <= 0" style="text-align: center;">Anda belum menambahkan ikm.</p>
+      <ion-list>
+        <ion-item *ngFor="let ikmUser of this.ikmUser?.ikm" class="list-ikm">
+          <div class="ikm-description" (click)="this.pushUserIkmDetailPage(ikmUser)">
+            <h2 style="color: #444;"><b>{{ ikmUser.nama_sentra }}</b></h2>
+            <p>{{ ikmUser.alamat }}</p>
+          </div>
+          <div class="ikm-option">
+            <ion-icon ios="ios-more" md="md-more" (click)="this.presentActionSheet(ikmUser)"></ion-icon>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-top: -1px;" *ngIf="semuaIkm" class="animated fadeIn">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let ikm of this.ikm?.ikm" class="list-ikm">
+          <div class="ikm-description" (click)="this.pushIkmDetailPage(ikm)">
+            <h2 style="color: #444;"><b>{{ ikm.nama_sentra }}</b></h2>
+            <p>{{ ikm.alamat }}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

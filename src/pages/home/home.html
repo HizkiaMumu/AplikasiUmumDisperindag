@@ -1,18 +1,115 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <img src="assets/imgs/logo-kukar.png" height="25px" width="auto" style="margin-bottom: -5px !important;">
+      <span>DISPERINDAG</span>
+    </ion-title>
+
+    <ion-buttons right (click)="this.pushLiveChatPage()">
+      <button ion-button icon-only>
+        <ion-icon ios="md-chatboxes" md="md-chatboxes"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
+  <div style="padding: 0px 16px 10px 16px; background: rgb(255, 255, 255) !important;">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-slides pager>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-slide>
+      <img src="https://source.unsplash.com/1600x900/?tomato" width="100%" height="auto">
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://source.unsplash.com/1600x900/?chili" width="100%" height="auto">
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://source.unsplash.com/1600x900/?rice" width="100%" height="auto">
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-card *ngIf="this.data?.komoditi != null">
+    <ion-card-content>
+      <div *ngFor="let komoditi of this.data?.komoditi; let i=index;">
+        <div *ngFor="let harga of komoditi.harga_komoditis; let i=index;">
+          <ion-item-group>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="{{ komoditi.thumbnail }}">
+              </ion-avatar>
+              <h2 style="color: #444;"><b>{{ komoditi.nama }}</b></h2>
+              <p>{{ harga.harga | currency:'RP.' }} / {{ harga.satuan }}</p>
+              <p>{{ harga.pasar.nama }}</p>
+            </ion-item>
+          </ion-item-group>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-bottom: 20px !important;">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col (click)="this.pushListPasarPage()">
+            <ion-icon ios="ios-pricetags-outline" md="ios-pricetags-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Harga Komoditi</b></h5>
+          </ion-col>
+          <!-- <ion-col (click)="this.pushListBeritaPage()">
+            <ion-icon ios="ios-paper-outline" md="ios-paper-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>News</b></h5>
+          </ion-col> -->
+          <ion-col (click)="this.pushListAgendaPage()">
+            <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Agenda</b></h5>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-row>
+          <ion-col (click)="this.pushListPengumumanPage()">
+            <ion-icon ios="ios-alert-outline" md="ios-alert-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Pengumuman</b></h5>
+          </ion-col>
+          <ion-col>
+            <ion-icon ios="ios-videocam-outline" md="ios-videocam-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Galeri Video</b></h5>
+          </ion-col>
+          <ion-col (click)="this.pushGaleriFotoPage()">
+            <ion-icon ios="ios-image-outline" md="ios-image-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Galeri Foto</b></h5>
+          </ion-col>
+        </ion-row> -->
+
+        <ion-row>
+          <ion-col (click)="this.pushListIkmPage()">
+            <ion-icon ios="ios-list-box-outline" md="ios-list-box-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>List IKM</b></h5>
+          </ion-col>
+          <!-- <ion-col>
+            <ion-icon ios="ios-create-outline" md="ios-create-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Registrasi IKM</b></h5>
+          </ion-col> -->
+          <ion-col (click)="this.pushSebaranIkmPage()">
+            <ion-icon ios="ios-map-outline" md="ios-map-outline" class="icon-button" style="color: rgb(87, 85, 85);"></ion-icon>
+            <h5><b>Sebaran IKM</b></h5>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

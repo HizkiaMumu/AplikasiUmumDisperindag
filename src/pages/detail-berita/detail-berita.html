@@ -1,0 +1,28 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-title center>
+      <span style="color: #fff !important;">{{ this.data?.berita.judul }}</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <img src="{{ this.data?.berita.thumbnail }}" width="100%" height="auto">
+
+  <div padding>
+    <h2 class="judul-berita">{{ this.data?.berita.judul }}</h2>
+    <p class="deskripsi"><span class="biru capital">{{ this.data?.berita.kategori }}</span> | {{ this.data?.berita.created_at }}</p>
+    <div class="deskripsi" [innerHTML]="this.data?.berita.isi"></div>
+  </div>
+
+</ion-content>

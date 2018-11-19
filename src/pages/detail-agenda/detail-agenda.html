@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar class="send-to-front">
+
+    <ion-title center>
+      <span>{{ this.data?.agenda.judul }}</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h5 style="color: #424242;"><b>{{ this.data?.agenda.judul }}</b></h5>
+  <p style="color: #424242;">
+    <ion-icon ios="ios-calendar-outline" md="ios-calendar-outline" style="margin-right: 5px;"></ion-icon>
+    <b>{{ this.data?.agenda.tanggal }} | {{ this.data?.agenda.waktu }} WITA</b>
+  </p>
+  <p style="color: #424242; font-family: 'Open Sans', sans-serif; font-weight: 600; text-align: justify;">{{ this.data?.agenda.topik }}</p>
+</ion-content>

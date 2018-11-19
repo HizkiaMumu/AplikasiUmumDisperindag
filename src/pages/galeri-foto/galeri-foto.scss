@@ -1,0 +1,32 @@
+page-galeri-foto {
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .info-album {
+    z-index: 1000 !important;
+  }
+
+  .nama-album {
+    color: #fff;
+    font-weight: 100;
+  }
+
+  .background-hitam {
+    background: #000;
+  }
+
+}

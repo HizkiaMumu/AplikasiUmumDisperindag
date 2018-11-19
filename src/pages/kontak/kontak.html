@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>Kontak</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 style="text-align: center !important;">
+          <ion-icon name="ios-call-outline" class="kontak-icon"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <div class="description-kontak">
+            <h1 class="hijau-disperindag kontak-title"><b>Telepon</b></h1>
+            <p class="animated fadeIn kontak" *ngIf="this.kontak != null"><b>{{ this.kontak?.kontak.telp }}</b></p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 style="text-align: center !important;">
+          <ion-icon name="ios-mail-outline" class="kontak-icon"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <div class="description-kontak">
+            <h1 class="hijau-disperindag kontak-title"><b>Email</b></h1>
+            <p class="animated fadeIn kontak" *ngIf="this.kontak != null"><b>{{ this.kontak?.kontak.email }}</b></p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2 style="text-align: center !important;">
+          <ion-icon name="ios-map-outline" class="kontak-icon"></ion-icon>
+        </ion-col>
+        <ion-col col-10>
+          <div class="description-kontak">
+            <h1 class="hijau-disperindag kontak-title"><b>Alamat</b></h1>
+            <p class="animated fadeIn kontak" *ngIf="this.kontak != null"><b>{{ this.kontak?.kontak.alamat }}</b></p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

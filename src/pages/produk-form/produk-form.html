@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span *ngIf="!asEditForm">Tambah Produk</span>
+      <span *ngIf="asEditForm">Edit Produk</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card class="animated fadeIn">
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="dark" stacked><b>Nama Produk</b></ion-label>
+        <ion-input type="text" [(ngModel)]="this.nama_produk"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark" stacked><b>Harga</b></ion-label>
+        <ion-input type="number" [(ngModel)]="this.harga"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="dark" stacked><b>Deskripsi</b></ion-label>
+        <ion-textarea [(ngModel)]="this.deskripsi"></ion-textarea>
+      </ion-item>
+
+      <ion-item *ngIf="!this.asEditForm">
+        <button ion-button outline color="primary" (click)="this.selectFile()">Pilih Gambar</button>
+      </ion-item>
+
+      <ion-item *ngIf="this.tmpImg != null" (click)="this.selectFile()">
+        <img src="{{ this.tmpImg }}" width="100%" height="auto">
+      </ion-item>
+
+      <button ion-button block round color="primary" (click)="this.submitData()">Submit</button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

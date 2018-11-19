@@ -1,0 +1,28 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">Play Video</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div [innerHtml]='this.sanitization.bypassSecurityTrustHtml(this.embed)'></div>
+
+</ion-content>

@@ -14,3 +14,49 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.hijau-disperindag {
+  color: #04B26C;
+}
+
+.toolbar-background-md {
+  background: #fff;
+}
+
+.toolbar-title-md {
+  text-align: center;
+  margin-left: -5px !important;
+  font-weight: 700 !important;
+}
+
+.bar-button-menutoggle-md {
+  margin: 0px !important;
+}
+
+.underline {
+  border-bottom: 1px solid rgb(87, 85, 85);
+}
+
+.sidemenu-header {
+  text-align: center;
+  position: relative;
+  padding: 60px 10px;
+}
+
+
+.sidemenu-header .header-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(87, 85, 85);
+}
+
+.sidemenu-header .header-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(87, 85, 85);
+  margin-top: -8px;
+}
+
+.send-to-front {
+  background: rgba(0, 0, 0, 0.5) !important;
+}

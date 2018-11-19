@@ -1,0 +1,29 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-title center>
+      <span style="color: #fff !important;">{{ this.profilPasar?.nama }}</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <img src="{{ this.profilPasar?.thumbnail }}" width="100%" height="auto">
+
+  <div padding>
+    <h2 class="nama-pasar"><b>{{ this.profilPasar?.nama }}</b></h2>
+    <p class="deskripsi biru"><ion-icon ios="ios-map" md="md-map"></ion-icon> {{ this.profilPasar?.alamat }}</p>
+    <p class="deskripsi justify-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+page-detail-pasar {
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .item-md {
+    padding: 0px 10px;
+  }
+
+  .detail-pasar {
+    z-index: 1000 !important;
+    margin-top: -85px;
+    color: #fff;
+    padding: 0px 5px;
+  }
+
+  .alamat-pasar {
+    margin-top: -7px;
+  }
+
+  .bg-hitam {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+}

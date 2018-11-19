@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>List IKM</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngFor="let ikm of this.ikm?.ikm">
+    <div style="margin-bottom: 10px;" (click)="this.pushDetailIkmPage(ikm)" *ngIf="ikm.produks.length > 0" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + ikm.produks[0].thumbnail + ')')" class="card-produk">
+      <div class="dark-overlay-card"></div>
+      <div class="produk-info">
+        <h3 class="title"><span class="background-black-overlay">{{ ikm.nama_sentra }}</span></h3>
+        <p class="deskripsi"><span class="background-black-overlay">{{ ikm.alamat }}</span></p>
+      </div>
+    </div>
+    <div style="margin-bottom: 10px;" (click)="this.pushDetailIkmPage(ikm)" *ngIf="ikm.produks.length <= 0" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(https://dubsism.files.wordpress.com/2017/12/image-not-found.png?w=547)')" class="card-produk">
+      <div class="dark-overlay-card"></div>
+      <div class="produk-info">
+        <h3 class="title"><span class="background-black-overlay">{{ ikm.nama_sentra }}</span></h3>
+        <p class="deskripsi"><span class="background-black-overlay">{{ ikm.alamat }}</span></p>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

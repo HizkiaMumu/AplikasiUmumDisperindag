@@ -1,0 +1,37 @@
+<ion-content>
+
+  <div class="register-area">
+
+    <img src="assets/imgs/logo-kukar.png" height="50px" width="auto" class="animated fadeIn">
+
+    <h1 class="bold animated fadeInUp delay-1s">Belum punya akun?</h1>
+    <h5 class="animated fadeInUp delay-1s">Silahkan registrasi dibawah</h5>
+
+    <div class="input-area animated fadeIn delay-2s">
+      <ion-item>
+        <ion-label class="bold" stacked>Nama</ion-label>
+        <ion-input type="email" placeholder="Masukan nama anda" [(ngModel)]="this.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="bold" stacked>Email</ion-label>
+        <ion-input type="email" placeholder="john@mail.com" [(ngModel)]="this.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="bold" stacked>Password</ion-label>
+        <ion-input type="password" placeholder="********" [(ngModel)]="this.password"></ion-input>
+      </ion-item>
+
+      <p class="float-r opacity" (click)="this.pushForgetPasswordPage()">Forgot password?</p>
+    </div>
+
+    <button ion-button block round color="pink" class="no-shadow padding-20 capital bold animated fadeIn delay-2s" (click)="this.registerValidation()">
+      Register
+    </button>
+
+    <p class="login-area animated fadeIn delay-3s">Sudah punya akun? <b (click)="this.popToLoginPage()">login disini</b></p>
+
+  </div>
+
+</ion-content>

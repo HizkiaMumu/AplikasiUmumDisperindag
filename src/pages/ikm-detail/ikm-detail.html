@@ -1,0 +1,156 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>IKM Detail</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block [outline]="!listProduk" color="dark" (click)="this.listProduk = true; this.detailIkm = false;">List Produk</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block [outline]="!detailIkm" color="dark" (click)="this.detailIkm = true; this.listProduk = false;">Detail IKM</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="text-align: center !important;" *ngIf="this.ikm?.produks.length <= 0 && this.listProduk">
+    Produk tidak ditemukan.
+  </div>
+
+  <div style="padding: 0px 10px;" *ngIf="this.listProduk">
+    <div style="margin-bottom: 10px;" *ngFor="let produk of this.ikm?.produks" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + produk.thumbnail + ')')" class="card-produk animated fadeIn">
+      <div class="dark-overlay-card"></div>
+      <div class="produk-info">
+        <h3 class="title"><span class="background-black-overlay">{{ produk.nama }}</span></h3>
+        <p class="deskripsi"><span class="background-black-overlay">{{ produk.harga | currency: 'Rp.' }}</span></p>
+      </div>
+    </div>
+  </div>
+
+  <ion-card class="animated fadeIn" style="margin-top: -1px;" *ngIf="this.detailIkm">
+    <ion-card-content>
+      <ion-list>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Nama Sentra</b></h2>
+            <p>{{ this.ikm.nama_sentra }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Jenis Produk</b></h2>
+            <p>{{ this.ikm.jenis_produk }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Jumlah Unit Usaha</b></h2>
+            <p>{{ this.ikm.jumlah_unit_usaha }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Kontak Person</b></h2>
+            <p>{{ this.ikm.kontak_person }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Alamat</b></h2>
+            <p>{{ this.ikm.alamat }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>RT</b></h2>
+            <p>{{ this.ikm.rt }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>RW</b></h2>
+            <p>{{ this.ikm.rw }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Kelurahan</b></h2>
+            <p>{{ this.ikm.kelurahan }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Kecamatan</b></h2>
+            <p>{{ this.ikm.kecamatan }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Wilayah</b></h2>
+            <p>{{ this.ikm.wilayah }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Tenaga Kerja</b></h2>
+            <p>{{ this.ikm.tenaga_kerja }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Nilai Investasi</b></h2>
+            <p>{{ this.ikm.nilai_investasi }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Kapasitas Produksi</b></h2>
+            <p>{{ this.ikm.kapasitas_produksi }}</p>
+          </div>
+        </ion-item>
+
+        <ion-item class="list-ikm">
+          <div class="ikm-description">
+            <h2 style="color: #444;"><b>Satuan Berat</b></h2>
+            <p>{{ this.ikm.satuan }}</p>
+          </div>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

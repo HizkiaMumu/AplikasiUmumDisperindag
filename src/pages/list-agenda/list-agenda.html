@@ -1,0 +1,34 @@
+<ion-header no-border>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>List Agenda</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <div style="padding: 0px 16px 10px 16px; background: rgb(255, 255, 255) !important;">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of this.data?.agendas" (click)="this.pushDetailAgendaPage(item.id)">
+      <h2>{{ item.judul }}</h2>
+      <p>{{ item.topik }}</p>
+      <p><b>{{ item.tanggal }}</b></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

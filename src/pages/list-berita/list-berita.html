@@ -1,0 +1,34 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">List Berita</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let berita of this.data?.beritas" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + berita.thumbnail + ')')" class="card-berita" (click)="this.pushDetailBeritaPage(berita.id)">
+    <div class="dark-overlay"></div>
+    <div class="berita-info">
+      <h3 class="title">{{ berita.judul }}</h3>
+      <p class="deskripsi">{{ berita.created_at }}</p>
+    </div>
+  </div>
+
+</ion-content>

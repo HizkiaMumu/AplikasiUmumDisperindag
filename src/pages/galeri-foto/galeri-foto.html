@@ -1,0 +1,35 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">Galeri Foto</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-slides>
+    <ion-slide *ngFor="let album of this.data?.album_fotos" (click)="this.pushDetailAlbum(album.id)" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + album.thumbnail.foto + ')')" style="background-repeat: no-repeat; background-size: cover;">
+      <div class="dark-overlay"></div>
+      <div class="info-album animated fadeIn delay-1s">
+        <h4 class="nama-album"><span class="background-hitam" style="padding: 5px 15px;">{{ album.nama }}</span></h4>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

@@ -1,5 +1,17 @@
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+
+import { HostProvider } from '../../providers/host/host';
+
+import { ListBeritaPage } from '../list-berita/list-berita';
+import { ListAgendaPage } from '../list-agenda/list-agenda';
+import { ListPasarPage } from '../list-pasar/list-pasar';
+import { ListPengumumanPage } from '../list-pengumuman/list-pengumuman';
+import { GaleriFotoPage } from '../galeri-foto/galeri-foto';
+import { SebaranIkmPage } from '../sebaran-ikm/sebaran-ikm';
+import { ListIkmPage } from '../list-ikm/list-ikm';
+import { LiveChatPage } from '../live-chat/live-chat';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +19,62 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  data: any;
 
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, private host: HostProvider, private http: HttpClient) {
+    this.menuCtrl.swipeEnable(true);
+  }
+
+  pushListPasarPage(){
+    this.navCtrl.push(ListPasarPage);
+  }
+
+  pushListBeritaPage(){
+    this.navCtrl.push(ListBeritaPage);
+  }
+
+  pushListAgendaPage(){
+    this.navCtrl.push(ListAgendaPage);
+  }
+
+  pushListPengumumanPage(){
+    this.navCtrl.push(ListPengumumanPage);
+  }
+
+  pushGaleriFotoPage(){
+    this.navCtrl.push(GaleriFotoPage);
+  }
+
+  pushSebaranIkmPage(){
+    this.navCtrl.push(SebaranIkmPage);
+  }
+
+  pushListIkmPage(){
+    this.navCtrl.push(ListIkmPage);
+  }
+
+  pushLiveChatPage(){
+    this.navCtrl.push(LiveChatPage);
+  }
+
+  getItems(ev: any) {
+    const val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      let headers = new HttpHeaders();
+      headers.append("Content-Type","application/json");
+      headers.append("Accept","application/json");
+      this.http.get(this.host.baseUrl + "/komoditi/search?keyword=" + val, {headers: headers})
+      .subscribe(
+        data => {
+          this.data = data;
+          console.log(this.data);
+        }, (err) => {
+          console.log(err);
+        });
+    } else {
+
+    }
   }
 
 }

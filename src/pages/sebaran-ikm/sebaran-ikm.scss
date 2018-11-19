@@ -1,0 +1,44 @@
+page-sebaran-ikm {
+
+  ion-content {
+    background: rgb(240, 240, 240) !important;
+  }
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .tab-button-area {
+    margin-top: 60px;
+  }
+
+  #myMap {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: -100;
+  }
+
+  .list-ikm {
+    border-bottom: 1px solid rgb(195, 195, 195);
+  }
+
+  .ikm-description {
+    float: left;
+  }
+
+}

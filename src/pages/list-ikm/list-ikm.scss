@@ -1,0 +1,41 @@
+page-list-ikm {
+
+  ion-content {
+    background: rgb(240, 240, 240) !important;
+  }
+
+  .card-produk {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .dark-overlay-card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .produk-info {
+    position: relative !important;
+    bottom: 60px;
+    left: 10px;
+    z-index: 1000;
+  }
+
+  .title {
+    color: #fff;
+  }
+
+  .deskripsi {
+    margin-top: -5px;
+    color: #fff;
+  }
+
+  .background-black-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+}

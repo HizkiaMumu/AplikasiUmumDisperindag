@@ -1,0 +1,38 @@
+page-detail-image {
+
+  ion-content {
+    background: #000 !important;
+  }
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .tengah {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .icon-download {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+  }
+
+}

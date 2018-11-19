@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>Registrasi IKM</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="header-form">
+    <img src="assets/imgs/logo-kukar.png" height="77px" width="auto">
+    <h4><b>Formulir Registrasi IKM</b></h4>
+  </div>
+
+  <ion-item>
+    <ion-label color="dark" floating>Nama Sentra</ion-label>
+    <ion-input type="text" [(ngModel)]="this.nama_sentra"></ion-input>
+  </ion-item>
+
+  <ion-item style="margin-top: 15px;">
+    <ion-label color="dark">Kategori</ion-label>
+    <ion-select [(ngModel)]="this.kategori_ikm_id">
+      <ion-option *ngFor="let kategori of this.kategoriIkm?.kategori" value="{{ kategori.id }}">{{ kategori.nama }}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Jenis Produk</ion-label>
+    <ion-input type="text" [(ngModel)]="this.jenis_produk"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Jumlah Unti Usaha</ion-label>
+    <ion-input type="number" [(ngModel)]="this.jumlah_unit_usaha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Kontak Person</ion-label>
+    <ion-input type="text" [(ngModel)]="this.kontak_person"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Alamat</ion-label>
+    <ion-textarea [(ngModel)]="this.alamat"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>RT</ion-label>
+    <ion-input type="text" [(ngModel)]="this.rt"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>RW</ion-label>
+    <ion-input type="text" [(ngModel)]="this.rw"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Kelurahan</ion-label>
+    <ion-input type="text" [(ngModel)]="this.kelurahan"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Kecamatan</ion-label>
+    <ion-input type="text" [(ngModel)]="this.kecamatan"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Wilayah</ion-label>
+    <ion-input type="text" [(ngModel)]="this.wilayah"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Tenaga Kerja</ion-label>
+    <ion-input type="number" [(ngModel)]="this.tenaga_kerja"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Nilai Investasi</ion-label>
+    <ion-input type="number" [(ngModel)]="this.nilai_investasi"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Kapasitas Produksi</ion-label>
+    <ion-input type="number" [(ngModel)]="this.kapasitas_produksi"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark" floating>Satuan Berat</ion-label>
+    <ion-input type="text" [(ngModel)]="this.satuan"></ion-input>
+  </ion-item>
+
+  <ion-item style="margin-top: 10px;">
+    <ion-label color="dark">Pilih Lokasi</ion-label>
+  </ion-item>
+
+  <div id="mapid"></div>
+
+  <div style="padding: 10px 5px;">
+    <button ion-button block round color="dark" (click)="this.submitIkm()"><b>Submit</b></button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span style="color: #fff !important;">List Pasar</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-slides>
+    <ion-slide *ngFor="let pasar of this.data?.pasars" (click)="this.pushDetailPasarPage(pasar.id)" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + pasar.thumbnail + ')')" style="background-repeat: no-repeat; background-size: cover;">
+      <div class="dark-overlay"></div>
+      <div class="info-pasar animated fadeIn delay-1s">
+        <h1 class="nama-pasar"><b>{{ pasar.nama }}</b></h1>
+        <p class="deskripsi-pasar">{{ pasar.deskripsi | slice:0:30 }} ...</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header no-border>
+
+  <ion-navbar class="send-to-front">
+
+    <ion-title center>
+      <span style="color: #fff !important;">Profil Pasar</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <img src="{{ this.data?.pasar.thumbnail }}" width="100%" height="auto">
+
+  <div class="detail-pasar" (click)="this.pushProfilPasarPage(this.data?.pasar)">
+    <h6 class="nama-pasar"><span class="bg-hitam">{{ this.data?.pasar.nama }}</span></h6>
+    <p class="alamat-pasar"><span class="bg-hitam">{{ this.data?.pasar.alamat }}</span></p>
+  </div>
+
+  <div *ngFor="let item of this.komoditi; let i=index;">
+    <ion-item-group>
+      <ion-item-divider *ngIf="this.komoditi[i]?.kategori != this.komoditi[i-1]?.kategori" color="light"><b>{{ item.nama }}</b></ion-item-divider>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{ item.thumbnail }}">
+        </ion-avatar>
+        <h2 style="color: #444;"><b>{{ item.nama }}</b></h2>
+        <p>{{ item.harga | currency:'RP.' }} / {{ item.satuan }}</p>
+      </ion-item>
+    </ion-item-group>
+  </div>
+
+</ion-content>

@@ -1,15 +1,26 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-menu [content]="content" (ionOpen)="checkIfLoggedIn()">
 
   <ion-content>
+
+    <div class="sidemenu-header">
+      <img src="assets/imgs/logo-kukar.png" height="55px" width="auto" class="header-logo animated fadeIn">
+      <h1 class="header-title animated fadeInUp"><span class="underline">DISPERINDAG</span></h1>
+      <h5 class="header-subtitle animated fadeInUp">KUTAI KARTANEGARA</h5>
+    </div>
+
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
+      <div *ngIf="this.isLogout">
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+        <button ion-item (click)="this.pushLoginPage()">Login</button>
+      </div>
+      <div *ngIf="this.isLogin">
+        <button menuClose ion-item *ngFor="let loggedInPage of loggedInPages" (click)="openPage(loggedInPage)">
+          {{loggedInPage.title}}
+        </button>
+        <button ion-item (click)="logout()">Logout</button>
+      </div>
     </ion-list>
   </ion-content>
 

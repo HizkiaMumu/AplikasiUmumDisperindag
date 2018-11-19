@@ -1,0 +1,34 @@
+<ion-header no-border>
+
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title center>
+      <span>{{ this.data?.album_foto.nama }}</span>
+    </ion-title>
+
+    <ion-buttons right>
+      <img src="assets/imgs/logo-kukar.png" height="27px" width="auto" style="margin-bottom: -3px !important;">
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let image of this.data?.album_foto.fotos" col-4 (click)="this.pushDetailImagePage(image)">
+        <img src="{{ image.foto }}" width="100%" height="auto">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,51 @@
+page-registrasi {
+
+  * {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+
+  .bold {
+    font-weight: 800;
+  }
+
+  .capital {
+    text-transform: none !important;
+  }
+
+  .float-r {
+    float: right;
+  }
+
+  .text-align-center {
+    text-align: center;
+  }
+
+  .opacity {
+    opacity: 0.6;
+  }
+
+  .register-area {
+    margin: 65px 20px;
+  }
+
+  .input-area {
+    margin: 40px 0px;
+  }
+
+  .item-md {
+    padding-left: 0px !important;
+  }
+
+  .no-shadow {
+    box-shadow: none !important;
+  }
+
+  .padding-20 {
+    padding: 20px 0px;
+  }
+
+  .login-area {
+    text-align: center;
+  }
+
+}

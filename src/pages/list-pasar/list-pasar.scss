@@ -1,0 +1,46 @@
+page-list-pasar {
+
+  .dark-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .info-pasar {
+    z-index: 1000 !important;
+    bottom: 0 !important;
+    left: 15px !important;
+    position: absolute !important;
+    text-align: left !important;
+  }
+
+  .nama-pasar {
+    color: #fff;
+  }
+
+  .deskripsi-pasar {
+    color: #fff;
+    margin-top: -10px;
+  }
+
+}

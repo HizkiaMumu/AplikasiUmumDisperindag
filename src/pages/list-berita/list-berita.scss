@@ -1,0 +1,50 @@
+page-list-berita {
+
+  .toolbar-background-md {
+    background: transparent;
+  }
+
+  .send-to-front {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff !important;
+  }
+
+  .card-berita {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .dark-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .berita-info {
+    position: relative !important;
+    bottom: 70px;
+    left: 10px;
+    z-index: 1000;
+  }
+
+  .title {
+    color: #fff;
+  }
+
+  .deskripsi {
+    margin-top: -5px;
+    color: #fff;
+  }
+
+}
