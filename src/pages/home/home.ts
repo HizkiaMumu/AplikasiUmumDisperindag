@@ -1,5 +1,8 @@
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
+import { IonicImageLoader } from 'ionic-image-loader';
+import { Keyboard } from '@ionic-native/keyboard';
 import { Component } from '@angular/core';
 
 import { HostProvider } from '../../providers/host/host';
@@ -12,6 +15,7 @@ import { GaleriFotoPage } from '../galeri-foto/galeri-foto';
 import { SebaranIkmPage } from '../sebaran-ikm/sebaran-ikm';
 import { ListIkmPage } from '../list-ikm/list-ikm';
 import { LiveChatPage } from '../live-chat/live-chat';
+import { DetailBeritaPage } from '../detail-berita/detail-berita';
 
 @Component({
   selector: 'page-home',
@@ -20,9 +24,27 @@ import { LiveChatPage } from '../live-chat/live-chat';
 export class HomePage {
 
   data: any;
+  news: any;
+  banner: any;
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, private host: HostProvider, private http: HttpClient) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, private host: HostProvider, private http: HttpClient, public sanitization: DomSanitizer, private keyboard: Keyboard) {
     this.menuCtrl.swipeEnable(true);
+    this.getNews();
+    this.getBanners();
+  }
+
+  getBanners(){
+    let headers = new HttpHeaders();
+    headers.append("Content-Type","application/json");
+    headers.append("Accept","application/json");
+    this.http.get(this.host.baseUrl + "/banner", {headers: headers})
+    .subscribe(
+      data => {
+        this.banner = data;
+        console.log(this.banner);
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   pushListPasarPage(){
@@ -57,8 +79,19 @@ export class HomePage {
     this.navCtrl.push(LiveChatPage);
   }
 
+  pushDetailBeritaPage(idBerita){
+    this.navCtrl.push(DetailBeritaPage, {
+      id: idBerita
+    });
+  }
+
+  setRootHome(){
+    this.navCtrl.setRoot(HomePage);
+  }
+
   getItems(ev: any) {
     const val = ev.target.value;
+    this.keyboard.hide();
 
     if (val && val.trim() != '') {
       let headers = new HttpHeaders();
@@ -75,6 +108,20 @@ export class HomePage {
     } else {
 
     }
+  }
+
+  getNews(){
+    let headers = new HttpHeaders();
+    headers.append("Content-Type","application/json");
+    headers.append("Accept","application/json");
+    this.http.get(this.host.baseUrl + "/berita", {headers: headers})
+    .subscribe(
+      data => {
+        this.news = data;
+        console.log(this.news);
+      }, (err) => {
+        console.log(err);
+      });
   }
 
 }

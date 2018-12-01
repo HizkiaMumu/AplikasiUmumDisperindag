@@ -16,6 +16,7 @@ export class RegistrasiPage {
   name: any;
   email: any;
   password: any;
+  validEmail: any;
 
   errMessage: any;
   loading: any;
@@ -33,14 +34,26 @@ export class RegistrasiPage {
     this.navCtrl.pop();
   }
 
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.validEmail = re.test(String(email).toLowerCase());
+  }
+
   registerValidation(){
     this.showLoading();
     if(this.name != null){
       if(this.email != null){
-        if(this.password != null){
-          this.doRegister();
+        this.validateEmail(this.email);
+        if(this.validEmail){
+          if(this.password != null){
+            this.doRegister();
+          } else {
+            this.errMessage = 'Mohon masukan password anda';
+            this.errAlert(this.errMessage);
+            this.loading.dismiss();
+          }
         } else {
-          this.errMessage = 'Mohon masukan password anda';
+          this.errMessage = 'Email yang anda masukan tidak valid';
           this.errAlert(this.errMessage);
           this.loading.dismiss();
         }

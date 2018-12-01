@@ -6,7 +6,7 @@
       </button>
     </ion-buttons>
 
-    <ion-title center>
+    <ion-title center (click)="this.setRootHome()">
       <img src="assets/imgs/logo-kukar.png" height="25px" width="auto" style="margin-bottom: -5px !important;">
       <span>DISPERINDAG</span>
     </ion-title>
@@ -19,32 +19,30 @@
   </ion-navbar>
 
   <div style="padding: 0px 16px 10px 16px; background: rgb(255, 255, 255) !important;">
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (search)="getItems($event)"></ion-searchbar>
   </div>
 
 </ion-header>
 
 <ion-content>
 
-  <ion-slides pager>
+  <ion-slides pager *ngIf="this.data?.komoditi == null">
 
-    <ion-slide>
-      <img src="https://source.unsplash.com/1600x900/?tomato" width="100%" height="auto">
-    </ion-slide>
-
-    <ion-slide>
-      <img src="https://source.unsplash.com/1600x900/?chili" width="100%" height="auto">
-    </ion-slide>
-
-    <ion-slide>
-      <img src="https://source.unsplash.com/1600x900/?rice" width="100%" height="auto">
+    <ion-slide *ngFor="let banner of this.banner?.banners">
+      <img src="{{ banner.original }}" (load)="img = true" [hidden]="!img" #imgModeElem />
     </ion-slide>
 
   </ion-slides>
 
   <ion-card *ngIf="this.data?.komoditi != null">
     <ion-card-content>
+      <div *ngIf="this.data?.komoditi <= 0" style="text-align: center !important;">
+        Komoditi tidak ditemukan.
+      </div>
       <div *ngFor="let komoditi of this.data?.komoditi; let i=index;">
+        <div *ngIf="komoditi.harga_komoditis.length <= 0" style="text-align: center !important;">
+          Komoditi tidak ditemukan.
+        </div>
         <div *ngFor="let harga of komoditi.harga_komoditis; let i=index;">
           <ion-item-group>
             <ion-item>
@@ -61,7 +59,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card style="margin-bottom: 20px !important;">
+  <ion-card style="margin-bottom: 20px !important;" *ngIf="this.data?.komoditi == null">
     <ion-card-content>
       <ion-grid>
         <ion-row>
@@ -111,5 +109,22 @@
       </ion-grid>
     </ion-card-content>
   </ion-card>
+
+  <div padding *ngIf="this.data?.komoditi == null">
+    <div class="header-block">
+      <h6><b>Recent News</b> <span style="float: right !important;" (click)="this.pushListBeritaPage()">See more</span></h6>
+    </div>
+    <ion-slides slidesPerView="1.5">
+      <ion-slide *ngFor="let berita of this.news?.beritas">
+        <div [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + berita.thumbnail + ')')" class="card-berita" (click)="this.pushDetailBeritaPage(berita.id)">
+          <div class="dark-overlay"></div>
+          <div class="berita-info">
+            <h3 class="title">{{ berita.judul }}</h3>
+            <p class="deskripsi">{{ berita.created_at }}</p>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
 
 </ion-content>

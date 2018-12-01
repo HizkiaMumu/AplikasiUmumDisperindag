@@ -1,5 +1,51 @@
 page-list-pasar {
 
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: !important
+    }
+  }
+
+  #right-button {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #fff;
+    z-index: 1000 !important;
+  }
+
+  #left-button {
+    position: fixed;
+    top: 50%;
+    left: 33px !important;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #fff;
+    z-index: 1000 !important;
+  }
+
+  .slide-button {
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    opacity: 0;
+  }
+
   .dark-overlay {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;

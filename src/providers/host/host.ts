@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class HostProvider {
 
-  baseUrl: any = 'http://disperindag.101creative.id/api';
+  baseUrl: any = 'http://disperindag.kukarkab.go.id/api';
 
   constructor(public http: HttpClient) {
     console.log('Hello HostProvider Provider');

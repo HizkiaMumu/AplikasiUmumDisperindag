@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the LiveChatPage page.
@@ -15,11 +15,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LiveChatPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loading: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
+    this.showLoading();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LiveChatPage');
+  }
+
+  showLoading(){
+    this.loading = this.loadingCtrl.create({
+      content: 'Mohon tunggu...'
+    });
+
+    this.loading.present();
+  }
+
+  dismissLoading(){
+    setTimeout(() => {
+      this.loading.dismiss()
+    }, 2000);
   }
 
 }

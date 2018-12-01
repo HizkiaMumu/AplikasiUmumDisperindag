@@ -110,9 +110,9 @@ export class ProdukFormPage {
          this.loading.dismiss();
          console.log(err.code);
          if(this.asEditForm){
-           this.successAlert("Gagal mengedit produk.");
+           this.errAlert("Gagal mengedit produk.");
          } else {
-           this.successAlert("Gagal menambahkan produk.");
+           this.errAlert("Gagal menambahkan produk.");
          }
        })
     } else {

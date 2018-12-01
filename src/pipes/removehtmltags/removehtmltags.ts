@@ -14,8 +14,9 @@ export class RemovehtmltagsPipe implements PipeTransform {
    */
   transform(value: string) {
     if(value){
-      var result = value.replace(/<\/?[^>]+>/gi, "");
+      var result = value.replace(/<\/?[^>]+>/gi, ""); //removing html tag using regex pattern
       return result;
     }
+    else{}
   }
 }

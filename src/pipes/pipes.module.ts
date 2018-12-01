@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RemovehtmltagsPipe } from './removehtmltags/removehtmltags';
 @NgModule({
-	declarations: [RemovehtmltagsPipe],
+	declarations: [RemovehtmltagsPipe,
+    RemovehtmltagsPipe],
 	imports: [],
-	exports: [RemovehtmltagsPipe]
+	exports: [RemovehtmltagsPipe,
+    RemovehtmltagsPipe]
 })
 export class PipesModule {}

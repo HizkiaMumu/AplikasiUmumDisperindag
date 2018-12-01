@@ -1,4 +1,4 @@
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, MenuController } from 'ionic-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Component } from '@angular/core';
@@ -22,8 +22,9 @@ import { DetailPasarPage } from '../detail-pasar/detail-pasar';
 export class ListPasarPage {
 
   data: any;
+  loading: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient, private host: HostProvider, private storage: Storage, public sanitization: DomSanitizer) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, public loadingCtrl: LoadingController, private http: HttpClient, private host: HostProvider, private storage: Storage, public sanitization: DomSanitizer) {
     this.getPasar();
   }
 
@@ -31,7 +32,16 @@ export class ListPasarPage {
     console.log('ionViewDidLoad ListPasarPage');
   }
 
+  showLoading(){
+    this.loading = this.loadingCtrl.create({
+      content: 'Mohon tunggu...'
+    });
+
+    this.loading.present();
+  }
+
   getPasar(){
+    this.showLoading();
     let headers = new HttpHeaders();
     headers.append("Content-Type","application/json");
     headers.append("Accept","application/json");
@@ -40,8 +50,10 @@ export class ListPasarPage {
       data => {
         this.data = data;
         console.log(this.data);
+        this.loading.dismiss();
       }, (err) => {
         console.log(err);
+        this.loading.dismiss();
       });
   }
 

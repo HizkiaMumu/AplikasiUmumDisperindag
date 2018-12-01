@@ -24,9 +24,15 @@
     <p class="alamat-pasar"><span class="bg-hitam">{{ this.data?.pasar.alamat }}</span></p>
   </div>
 
+  <div style="text-align: center; margin: 80px 0px;" *ngIf="this.komoditi?.length <= 0">
+    <img src="http://disperindag.kukarkab.go.id/mobile-assets/images/vegetables.png" height="80px" width="auto">
+    <h1><b>Data tidak tersedia</b></h1>
+    <p style="margin-top: -5px !important;">List harga komoditi dari <b>{{ this.data?.pasar.nama }}</b><br>belum tersedia. Silahkan coba lagi nanti.</p>
+  </div>
+
   <div *ngFor="let item of this.komoditi; let i=index;">
     <ion-item-group>
-      <ion-item-divider *ngIf="this.komoditi[i]?.kategori != this.komoditi[i-1]?.kategori" color="light"><b>{{ item.nama }}</b></ion-item-divider>
+      <ion-item-divider *ngIf="this.komoditi[i]?.kategori != this.komoditi[i-1]?.kategori" color="light"><b>{{ item.kategori }}</b></ion-item-divider>
       <ion-item>
         <ion-avatar item-start>
           <img src="{{ item.thumbnail }}">

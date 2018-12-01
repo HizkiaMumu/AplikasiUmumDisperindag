@@ -23,7 +23,7 @@
 
 <ion-content>
 
-  <div *ngFor="let berita of this.data?.beritas" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + berita.thumbnail + ')')" class="card-berita" (click)="this.pushDetailBeritaPage(berita.id)">
+  <div *ngFor="let berita of this.data?.berita" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + berita.thumbnail + ')')" class="card-berita" (click)="this.pushDetailBeritaPage(berita.id)">
     <div class="dark-overlay"></div>
     <div class="berita-info">
       <h3 class="title">{{ berita.judul }}</h3>

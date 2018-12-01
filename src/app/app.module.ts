@@ -70,6 +70,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenProvider } from '../providers/token/token';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { IonicImageLoader } from 'ionic-image-loader';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpClientModule,
+    IonicImageLoader.forRoot(),
     LoginPageModule,
     ForgetPasswordPageModule,
     ListPasarPageModule,
@@ -177,7 +180,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     FileTransfer,
     File,
     FileChooser,
-    ImagePicker
+    ImagePicker,
+    Keyboard
   ]
 })
 export class AppModule {}

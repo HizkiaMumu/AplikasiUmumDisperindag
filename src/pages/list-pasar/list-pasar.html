@@ -23,6 +23,9 @@
 
 <ion-content>
 
+  <ion-icon ios="ios-arrow-dropleft" md="ios-arrow-dropleft" id="left-button" class="slide-button"></ion-icon>
+  <ion-icon ios="ios-arrow-dropright" md="ios-arrow-dropright" id="right-button" class="slide-button"></ion-icon>
+
   <ion-slides>
     <ion-slide *ngFor="let pasar of this.data?.pasars" (click)="this.pushDetailPasarPage(pasar.id)" [style.background-image]="this.sanitization.bypassSecurityTrustStyle('url(' + pasar.thumbnail + ')')" style="background-repeat: no-repeat; background-size: cover;">
       <div class="dark-overlay"></div>

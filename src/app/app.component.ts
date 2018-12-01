@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
@@ -34,8 +34,13 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   loggedInPages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage, public events: Events) {
     this.initializeApp();
+
+    events.subscribe('user:login', () => {
+      this.isLogin = true;
+      this.isLogout = false;
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -67,6 +72,14 @@ export class MyApp {
 
       this.splashScreen.hide();
     });
+  }
+
+  ionViewDidLoad(){
+    this.checkIfLoggedIn();
+  }
+
+  ionViewDidEnter(){
+    this.checkIfLoggedIn();
   }
 
   checkIfLoggedIn(){

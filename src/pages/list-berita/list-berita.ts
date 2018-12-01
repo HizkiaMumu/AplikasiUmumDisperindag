@@ -34,7 +34,7 @@ export class ListBeritaPage {
     let headers = new HttpHeaders();
     headers.append("Content-Type","application/json");
     headers.append("Accept","application/json");
-    this.http.get(this.host.baseUrl + "/berita", {headers: headers})
+    this.http.get(this.host.baseUrl + "/berita/recent", {headers: headers})
     .subscribe(
       data => {
         this.data = data;

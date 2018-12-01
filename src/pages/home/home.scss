@@ -16,6 +16,38 @@ page-home {
     text-align: center !important;
   }
 
+  .card-berita {
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .dark-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .berita-info {
+    position: relative !important;
+    bottom: 90%;
+    left: 10px !important;
+    z-index: 1000;
+    text-align: left !important;
+  }
+
+  .title {
+    color: #fff;
+  }
+
+  .deskripsi {
+    margin-top: -5px;
+    color: #fff;
+  }
+
   .card-content-md {
     padding: 10px 0px;
   }

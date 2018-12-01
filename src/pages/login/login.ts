@@ -2,6 +2,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 
 import { HostProvider } from '../../providers/host/host';
 import { ForgetPasswordPage } from '../forget-password/forget-password';
@@ -26,11 +27,12 @@ export class LoginPage {
 
   email: any;
   password: any;
+  validEmail: any;
   data: any;
   errMessage: any;
   loading: any;
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, private storage: Storage, private http: HttpClient, private host: HostProvider, private alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams, private storage: Storage, private http: HttpClient, private host: HostProvider, private alertCtrl: AlertController, public loadingCtrl: LoadingController, public events: Events) {
     this.menuCtrl.close();
     this.menuCtrl.swipeEnable(false);
   }
@@ -39,13 +41,25 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.validEmail = re.test(String(email).toLowerCase());
+  }
+
   loginValidation() {
     this.showLoading();
     if(this.email != null){
-      if(this.password != null){
-        this.doLogin();
+      this.validateEmail(this.email);
+      if(this.validEmail){
+        if(this.password != null){
+          this.doLogin();
+        } else {
+          this.errMessage = 'Mohon masukan password anda';
+          this.errAlert(this.errMessage);
+          this.loading.dismiss();
+        }
       } else {
-        this.errMessage = 'Mohon masukan password anda';
+        this.errMessage = 'Email yang anda masukan tidak valid';
         this.errAlert(this.errMessage);
         this.loading.dismiss();
       }
@@ -70,7 +84,7 @@ export class LoginPage {
     .subscribe(
       data => {
         this.data = data;
-
+        this.events.publish('user:login');
         if(this.data.token){
           this.storage.set('token', this.data.token);
           this.storage.set('user', this.data.user);
